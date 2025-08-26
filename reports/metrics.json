@@ -1,131 +1,130 @@
 {
-  "MAPE_raw": 11.816196382789002,
-  "MAE_raw": 4719237.596798087,
-  "RMSE_raw": 8381743.455994085,
-  "R2_raw": -980.5485906453322,
+  "MAPE_raw": 0.3035432686736923,
+  "MAE_raw": 86017.24162729262,
+  "RMSE_raw": 119905.09438227148,
+  "R2_raw": 0.7173593920123875,
   "calibration": {
-    "global": 0.5,
-    "VTM": 0.4,
-    "VRT CANVAS": 0.4,
-    "VRT 1": 0.4,
-    "PLAY4": 0.4,
-    "VTM2": 0.4
+    "global": 0.9222422914450036,
+    "PLAY4": 0.9190367600900369,
+    "VRT 1": 0.9284661264965981,
+    "VRT CANVAS": 0.9049654150080771,
+    "VTM": 0.9126011296928898
   },
   "perm_importance_top": [
     {
       "feature": "Start",
-      "importance": 0.865342577624142
-    },
-    {
-      "feature": "weekday",
-      "importance": 0.6132866867748679
-    },
-    {
-      "feature": "month",
-      "importance": 0.36660925672464584
-    },
-    {
-      "feature": "Programma_THUIS",
-      "importance": 0.2283331648468902
+      "importance": 0.3454395774709755
     },
     {
       "feature": "Zender_VRT 1",
-      "importance": 0.13509011829753775
-    },
-    {
-      "feature": "start_bin_prime",
-      "importance": 0.09877562410711818
-    },
-    {
-      "feature": "Programma_HET 7 UUR-JOURNAAL",
-      "importance": 0.05447005537239953
+      "importance": 0.22136654360223362
     },
     {
       "feature": "Duur",
-      "importance": 0.04392332389229949
+      "importance": 0.06954735704570161
     },
     {
-      "feature": "Zender_VRT CANVAS",
-      "importance": 0.035157086798456305
+      "feature": "Programma_HET 7 UUR-JOURNAAL",
+      "importance": 0.06888581609067551
     },
     {
-      "feature": "start_bin_vooravond",
-      "importance": 0.011799808817542256
+      "feature": "Zender_VTM",
+      "importance": 0.06053387467047015
     },
     {
-      "feature": "Zender_VTM2",
-      "importance": 0.011568975396895453
-    },
-    {
-      "feature": "Programma_SWITCH",
-      "importance": 0.009009584142014759
+      "feature": "Programma_THUIS",
+      "importance": 0.05685786510620013
     },
     {
       "feature": "Programma_HET 1 UUR-JOURNAAL",
-      "importance": 0.003946870049165341
+      "importance": 0.0146893445728682
     },
     {
-      "feature": "Programma_TER ZAKE",
-      "importance": 0.002205436524644355
-    },
-    {
-      "feature": "Programma_DE DAG VAN VANDAAG",
-      "importance": 0.0003561647419889624
+      "feature": "weekday",
+      "importance": 0.01109539747349847
     },
     {
       "feature": "Programma_DE TAFEL VAN GERT",
-      "importance": 1.279834548704173e-05
+      "importance": 0.010849109044444184
     },
     {
-      "feature": "Programma_112 HULP IS ONDERWEG",
+      "feature": "Programma_BLOKKEN",
+      "importance": 0.009905537164994671
+    },
+    {
+      "feature": "Zender_VRT CANVAS",
+      "importance": 0.00951867463057703
+    },
+    {
+      "feature": "start_bin_vooravond",
+      "importance": 0.006881368931718634
+    },
+    {
+      "feature": "start_bin_prime",
+      "importance": 0.006659811616517686
+    },
+    {
+      "feature": "Programma_FAMILIE",
+      "importance": 0.0032736780053634895
+    },
+    {
+      "feature": "Programma_MILO",
+      "importance": 0.0017214259799250176
+    },
+    {
+      "feature": "prime_time",
+      "importance": 0.0005250526398611233
+    },
+    {
+      "feature": "Programma_DAGELIJKSE KOST",
+      "importance": 0.00019491830305660152
+    },
+    {
+      "feature": "Programma_FC DE KAMPIOENEN",
+      "importance": 1.3593289152391552e-05
+    },
+    {
+      "feature": "Programma_#LIKEME",
       "importance": 0.0
     },
     {
-      "feature": "Programma_B&B ZOEKT LIEF",
+      "feature": "Programma_BESTEMMING X",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAANTJER, HET BEGIN",
+      "feature": "Programma_BIG BROTHER",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAANWIELRENNEN. EK. APELDOORN D.",
+      "feature": "Programma_BITTERSWEET SIXTEEN",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAD BEHAVIOUR",
+      "feature": "Programma_ZOMERNACHTCONCERT UIT SCHONBRUNN",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAD BOYS FOR LIFE",
+      "feature": "Programma_ZONDER STERREN",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAGAGE",
+      "feature": "Zender_EUROSPORT 1 (NL)",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BAKE OFF VLAANDEREN",
+      "feature": "Zender_KETNET",
       "importance": 0.0
     },
     {
-      "feature": "is_weekend",
+      "feature": "Programma_ALEX AGNEW, WAKE ME UP WHEN IT'S OVER",
       "importance": 0.0
     },
     {
-      "feature": "Programma_21.7, BELGIAN PARTY",
+      "feature": "Zender_PLAY5",
       "importance": 0.0
     },
     {
-      "feature": "Programma_40 JAAR CLOUSEAU",
-      "importance": 0.0
-    },
-    {
-      "feature": "Programma_40 JAAR REILEN & HEYLEN",
-      "importance": 0.0
-    },
-    {
-      "feature": "Programma_7500",
+      "feature": "Zender_VTM GOLD",
       "importance": 0.0
     },
     {
@@ -133,6 +132,6 @@
       "importance": 0.0
     }
   ],
-  "n_train": 5712,
-  "n_test": 1428
+  "n_train": 1462,
+  "n_test": 366
 }

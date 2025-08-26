@@ -22,7 +22,7 @@ import sklearn
 from src.clean import clean_dataframe
 from src.features import build_features, FEATURE_ORDER, CATEGORICAL, NUMERIC
 
-DEFAULT_INPUT = Path("data/processed/train.csv")
+DEFAULT_INPUT = Path("data/processed/train2.csv")
 MODEL_PATH    = Path("models/model.joblib")  # let op: bundel (pipe + cal + meta)
 METRICS_PATH  = Path("reports/metrics.json")
 
@@ -110,7 +110,12 @@ def train(input_csv: Path = DEFAULT_INPUT) -> dict:
 
     # 1) Load & clean (north-only, met target)
     raw = pd.read_csv(input_csv, sep=";")
-    df, rep = clean_dataframe(raw, require_target=True, keep_only_region="north")
+    df, rep = clean_dataframe(raw, require_target=True,
+                            keep_only_region="north",
+                            keep_only_period="daily")
+    print(f"[clean] before={rep.n_rows_before} after={rep.n_rows_after} "
+        f"removed_non_daily={rep.n_removed_non_daily} south={rep.n_removed_south} "
+        f"missing_target={rep.n_removed_missing_target}")
 
     if len(df) < 100:
         raise ValueError(f"Te weinig rijen na cleaning ({len(df)}). Scrape wat meer data of versoepel filters.")
