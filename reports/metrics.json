@@ -1,137 +1,135 @@
 {
-  "MAPE_raw": 0.3035432686736923,
-  "MAE_raw": 86017.24162729262,
-  "RMSE_raw": 119905.09438227148,
-  "R2_raw": 0.7173593920123875,
+  "MAPE_raw": 0.2940100572827555,
+  "MAE_raw": 65352.4047057485,
+  "RMSE_raw": 90764.02645890763,
+  "R2_raw": 0.7670582071702887,
   "calibration": {
-    "global": 0.9222422914450036,
-    "PLAY4": 0.9190367600900369,
-    "VRT 1": 0.9284661264965981,
-    "VRT CANVAS": 0.9049654150080771,
-    "VTM": 0.9126011296928898
+    "global": 0.9804135145848298,
+    "VRT 1": 1.0572722770139111,
+    "VTM": 0.9531555662095723
   },
   "perm_importance_top": [
     {
       "feature": "Start",
-      "importance": 0.3454395774709755
+      "importance": 0.3120382765861477
     },
     {
       "feature": "Zender_VRT 1",
-      "importance": 0.22136654360223362
-    },
-    {
-      "feature": "Duur",
-      "importance": 0.06954735704570161
+      "importance": 0.15409751916097858
     },
     {
       "feature": "Programma_HET 7 UUR-JOURNAAL",
-      "importance": 0.06888581609067551
+      "importance": 0.10150041252683746
     },
     {
       "feature": "Zender_VTM",
-      "importance": 0.06053387467047015
-    },
-    {
-      "feature": "Programma_THUIS",
-      "importance": 0.05685786510620013
-    },
-    {
-      "feature": "Programma_HET 1 UUR-JOURNAAL",
-      "importance": 0.0146893445728682
-    },
-    {
-      "feature": "weekday",
-      "importance": 0.01109539747349847
-    },
-    {
-      "feature": "Programma_DE TAFEL VAN GERT",
-      "importance": 0.010849109044444184
-    },
-    {
-      "feature": "Programma_BLOKKEN",
-      "importance": 0.009905537164994671
+      "importance": 0.07975287348255974
     },
     {
       "feature": "Zender_VRT CANVAS",
-      "importance": 0.00951867463057703
+      "importance": 0.04539666560972163
     },
     {
-      "feature": "start_bin_vooravond",
-      "importance": 0.006881368931718634
+      "feature": "Duur",
+      "importance": 0.0313651013786001
+    },
+    {
+      "feature": "weekday",
+      "importance": 0.029061943788135793
+    },
+    {
+      "feature": "Programma_HET 1 UUR-JOURNAAL",
+      "importance": 0.019473797792897686
+    },
+    {
+      "feature": "Zender_PLAY4",
+      "importance": 0.014682423744720851
+    },
+    {
+      "feature": "Programma_NIEUWS 19U VTM",
+      "importance": 0.012887815509339628
     },
     {
       "feature": "start_bin_prime",
-      "importance": 0.006659811616517686
+      "importance": 0.0041951887624465225
     },
     {
-      "feature": "Programma_FAMILIE",
-      "importance": 0.0032736780053634895
+      "feature": "Programma_HET JOURNAAL LAAT",
+      "importance": 0.0039195702605405724
     },
     {
-      "feature": "Programma_MILO",
-      "importance": 0.0017214259799250176
+      "feature": "start_bin_vooravond",
+      "importance": 0.003054500017192441
+    },
+    {
+      "feature": "Zender_VTM2",
+      "importance": 0.0026291546238216613
     },
     {
       "feature": "prime_time",
-      "importance": 0.0005250526398611233
+      "importance": 0.0010334577423667612
     },
     {
-      "feature": "Programma_DAGELIJKSE KOST",
-      "importance": 0.00019491830305660152
+      "feature": "start_bin_middag",
+      "importance": 0.0005484867756194057
     },
     {
-      "feature": "Programma_FC DE KAMPIOENEN",
-      "importance": 1.3593289152391552e-05
-    },
-    {
-      "feature": "Programma_#LIKEME",
+      "feature": "Programma_BASKET. EK. D. - BELGIE/TSJECHIE",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BESTEMMING X",
+      "feature": "Programma_BASKET. EK. D. - MONTENEGRO/BELGIE",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BIG BROTHER",
+      "feature": "Programma_BASKET. EK. FIN. D. - SPANJE/BELGIE",
       "importance": 0.0
     },
     {
-      "feature": "Programma_BITTERSWEET SIXTEEN",
+      "feature": "Programma_BASKET. VRIEND D. - BELGIE/DUITSLAND",
       "importance": 0.0
     },
     {
-      "feature": "Programma_ZOMERNACHTCONCERT UIT SCHONBRUNN",
+      "feature": "Programma_112 HULP IS ONDERWEG",
       "importance": 0.0
     },
     {
-      "feature": "Programma_ZONDER STERREN",
+      "feature": "Programma_50 JAAR ROCK WERCHTER",
       "importance": 0.0
     },
     {
-      "feature": "Zender_EUROSPORT 1 (NL)",
+      "feature": "Programma_A MAN CALLED OTTO",
       "importance": 0.0
     },
     {
-      "feature": "Zender_KETNET",
+      "feature": "Programma_ALLES MAG WEG",
       "importance": 0.0
     },
     {
-      "feature": "Programma_ALEX AGNEW, WAKE ME UP WHEN IT'S OVER",
+      "feature": "Programma_ASSISEN",
       "importance": 0.0
     },
     {
-      "feature": "Zender_PLAY5",
+      "feature": "Programma_AUTO. RALLY GRIEKENLAND (S.)",
       "importance": 0.0
     },
     {
-      "feature": "Zender_VTM GOLD",
+      "feature": "Programma_B&B ZOEKT LIEF",
       "importance": 0.0
     },
     {
-      "feature": "Programma_9-1-1",
+      "feature": "Programma_BAR GOENS",
+      "importance": 0.0
+    },
+    {
+      "feature": "Programma_ALLOO BIJ DE VERKEERSPOLITIE",
+      "importance": 0.0
+    },
+    {
+      "feature": "Programma_ANDERMANS ZAKEN",
       "importance": 0.0
     }
   ],
-  "n_train": 1462,
-  "n_test": 366
+  "n_train": 799,
+  "n_test": 200
 }

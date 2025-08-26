@@ -6,6 +6,8 @@ import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from typing import Optional
+import re
 
 BASE_URL = "https://api.cim.be/api/tv_public_results"
 RAW_DIR = Path("data/raw/cim/pages")
@@ -39,10 +41,44 @@ def _to_minutes(s: Optional[str]) -> Optional[int]:
     sec = int(m.group(3)) if m.group(3) else 0
     return h*60 + mi + (1 if sec >= 30 else 0)
 
-def _clean_int(val) -> Optional[int]:
-    if val is None: return None
-    digits = re.sub(r"\D", "", str(val))
-    return int(digits) if digits else None
+def _parse_number_eu(val) -> Optional[float]:
+    """
+    Parseert Europese notatie:
+      '1.026.874,80' -> 1026874.80
+      '532.987'      -> 532987.0
+      '987,5'        -> 987.5
+    Werkt ook als val al numeriek is. Retourneert float of None.
+    """
+    if val is None:
+        return None
+    if isinstance(val, (int, float)):
+        return float(val)
+    s = str(val).strip()
+    if not s:
+        return None
+    # verwijder spaties (incl. non-breaking)
+    s = s.replace("\xa0", "").replace(" ", "")
+    # Europese naar ISO: haal duizendtsep. weg, vervang decimaal
+    s = s.replace(".", "").replace(",", ".")
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+def _parse_viewers(val) -> Optional[int]:
+    """
+    Converteert rate-velden naar 'aantal kijkers' (int, afgerond).
+    """
+    f = _parse_number_eu(val)
+    if f is None:
+        return None
+    # sommige APIs leveren fracties → rond af naar hele kijkers
+    v = int(round(f))
+    # veiligheidsnet tegen abnormale waarden
+    if v < 0 or v > 5_000_000:
+        # laat te hoge waarden vallen; log eventueel
+        return None
+    return v
 
 def _save_raw(page: int, payload) -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -87,21 +123,36 @@ def fetch_page(page: int, session: Optional[requests.Session] = None, use_cache:
 def _normalize(members: List[Dict[str, Any]]) -> pd.DataFrame:
     rows = []
     for e in members:
+        # filter direct op daily + north
+        if str(e.get("period", "")).lower() != "daily":
+            continue
+        if str(e.get("reportType", "")).lower() != "north":
+            continue
+
         programma = (e.get("description") or e.get("description2") or e.get("title") or "").strip()
         zender    = (e.get("channel") or e.get("station") or e.get("broadcaster") or "").strip()
-        kijkers   = _clean_int(e.get("rateInK")) or _clean_int(e.get("rateInKAll")) or _clean_int(e.get("live"))
+
+        # probeer meerdere velden in volgorde van betrouwbaarheid
+        kijkers = (
+            _parse_viewers(e.get("rateInK")) or
+            _parse_viewers(e.get("rateInKAll")) or
+            _parse_viewers(e.get("live"))
+        )
+
         datum_str = e.get("dateResult") or e.get("dateDiff") or ""
         start     = _to_minutes(e.get("startTime"))
         duur      = _to_minutes(e.get("rLength"))
+
         rows.append({
-            "Programma": programma or None,
-            "Zender": zender or None,
-            "Kijkcijfers": kijkers,
-            "Datum": pd.to_datetime(datum_str[:10], errors="coerce"),
-            "Start": start, "Duur": duur,
-            "ranking": e.get("ranking"),
-            "period": e.get("period"),
-            "reportType": e.get("reportType"),
+            "Programma":   programma or None,
+            "Zender":      zender or None,
+            "Kijkcijfers": kijkers,                         # ✅ nu correct geparsed
+            "Datum":       pd.to_datetime(datum_str[:10], errors="coerce"),
+            "Start":       start,
+            "Duur":        duur,
+            "ranking":     e.get("ranking"),
+            "period":      e.get("period"),
+            "reportType":  e.get("reportType"),
         })
     df = pd.DataFrame(rows)
     df = df.dropna(subset=["Programma","Zender","Kijkcijfers","Datum"])

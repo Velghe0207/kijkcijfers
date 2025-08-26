@@ -127,6 +127,9 @@ def train(input_csv: Path = DEFAULT_INPUT) -> dict:
     fdf = build_features(df_sorted)
     X_all = fdf[FEATURE_ORDER]
     y_all = df_sorted["Kijkcijfers"].astype(float).to_numpy()
+    print("Features:", FEATURE_ORDER)
+    print("Feature sample:")
+    print(X_all.head(3))
 
     # 4) Tijdssplit (80/20) op al-gesorteerde data
     split_idx = int(len(df_sorted) * 0.8)
